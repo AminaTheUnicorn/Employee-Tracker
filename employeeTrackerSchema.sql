@@ -29,12 +29,12 @@ CREATE TABLE department(
 -- ==== ALTER TABLE ====
 
 
-constraint fk_role FOREIGN KEY(role_id) REFERENCES roles (roles_id);
+-- constraint fk_role FOREIGN KEY(role_id) REFERENCES roles (roles_id);
  
-alter table employee
-ADD FOREIGN KEY(manager_id)
-REFERENCES roles (roles_id);
+-- alter table employee
+-- ADD FOREIGN KEY(manager_id)
+-- REFERENCES roles (roles_id);
 
-alter table roles
-ADD FOREIGN KEY(department_id) 
-REFERENCES department (departmentName_id);
+-- alter table roles
+-- ADD FOREIGN KEY(department_id) 
+-- REFERENCES department (departmentName_id);
