@@ -18,19 +18,30 @@ class DB {
 
 insertDepartment(department) {
   return this.connection.query("INSERT INTO department SET ?",{
-    department: department,
+    name: department,
   })
+
 }
 
 insertRoles(role, title, salary,department_id) {
-  return this.connection.query("INSERT INTO role SET ?",{
-    role: role,
-    title: title,
-    salary: salary,
-    department_id: department_id,
-  })
-}
+    return this.connection.query("INSERT INTO role SET ?",{
+      role: role,
+      title: title,
+      salary: salary,
+      department_id: department_id,
+    })
+  }
 
+  inserEmployee(first_name, last_name,role_id, manager_id) {
+    return this.connection.query("INSERT INTO employee SET ?",{
+        first_name: first_name, 
+        last_name: last_name,
+        role_id: role_id, 
+        manager_id: manager_id
+    })
+  
+  }
+  
 
 }
 

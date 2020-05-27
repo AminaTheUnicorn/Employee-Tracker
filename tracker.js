@@ -22,35 +22,33 @@ async function loadMainPrompts() {
         name: "choice",
         type: "list",
         message: "What would you like to do:",
-        choices: [
-            {
-                name: "Add departments",
+        choices: [{
+                name: "Add Departments",
                 value: "addDepartments"
             },
             {
-                name: "Add roles",
+                name: "Add Roles",
                 value: "addRoles"
             },
             {
-                name: "Add employees",
+                name: "Add Employees",
                 value: "addEmployees"
             },
-
             {
-                name: "View departments",
+                name: "View Department",
                 value: "viewDepartments"
             },
             {
-                name: "View roles",
-                value: "viewRoles"
+                name: "View Roles",
+                value: "viewRoles",
             },
             {
-                name: "View employees",
+                name: "View Employees",
                 value: "viewEmployees"
             },
             {
                 name: "Exit",
-                value: "exit"
+                value: "quit"
             }
         ]
     });
@@ -69,16 +67,17 @@ async function loadMainPrompts() {
             return showRoles();
         case "viewEmployees":
             return showEmployees();
-        case "exit":
+        case "quit":
             quit();
     }
     console.log(loadMainPrompts);
 }
 
+
 // ADD: DEPARTMENT | ROLES | EMPLOYEE 
 
 async function addDepartments(){
-    let {department} = await prompt (
+    const department = await prompt (
         [
             {
                 name: "Department",
@@ -89,9 +88,79 @@ async function addDepartments(){
         ]
     )
         await db.insertDepartment(department);
-        console.log("Your department was created successfully!");
+        console.log("Department successfully added!");
         loadMainPrompts();
 }
+
+async function addRoles(){
+    const role = await prompt (
+        [
+            {
+                name: "role",
+                value: role,
+                type: "input",
+                message: "Please type of role would you like to add:",
+            },
+            {
+                name: "title",
+                value: title,
+                type: "input",
+                message: "Please type the title would you like to add:",
+            },
+            {
+                name: "salary",
+                value: salary,
+                type: "input",
+                message: "Please type the salary would you like to add:",
+            },
+            {
+                name: "department id",
+                value: department_id,
+                type: "input",
+                message: "Please type the department idwould you like to add:",
+            }
+            
+        ]
+    )
+        await db.insertRoles(role, title, salary, department_id);
+        console.log("Department successfully added!");
+        loadMainPrompts();
+}
+
+async function addEmployees(){
+    const employee = await prompt (
+        [
+            {
+                name: "first_name",
+                value: first_name,
+                type: "input",
+                message: "Please enter first name:",
+            },
+            {
+                name: "last_name",
+                value: last_name,
+                type: "input",
+                message: "Please enter last name:",
+            },
+            {
+                name: "role_id",
+                value: role_id,
+                type: "input",
+                message: "Please enter id:",
+            },
+            {
+                name: "manager_id",
+                value: manager_id,
+                type: "input",
+                message: "Please enter manager id:",
+            },
+        ]
+    )
+        await db.insertEmployee(employee);
+        console.log("Employee successfully added!");
+        loadMainPrompts();
+}
+
 
 // VIEW: DEPARTMENT | ROLES | EMPLOYEE 
 
