@@ -56,17 +56,23 @@ async function loadMainPrompts() {
     switch (choice) {
         case "addDepartments":
             return addDepartments();
+            break;
         case "addRoles":
             return addRoles();
+            break;
         case "addEmployees":
             return addEmployees();
+            break;
 
         case "viewDepartments":
             return showDepartments();
+            break;
         case "viewRoles":
             return showRoles();
+            break;
         case "viewEmployees":
             return showEmployees();
+            break;
         case "quit":
             quit();
     }
@@ -80,13 +86,13 @@ async function addDepartments(){
     const department = await prompt (
         [
             {
-                name: "Department",
+                name: "name",
                 type: "input",
                 message: "Please type the department you would like to add:",
             },
             
         ]
-    )
+    );
         await db.insertDepartment(department);
         console.log("Department successfully added!");
         loadMainPrompts();
@@ -95,34 +101,27 @@ async function addDepartments(){
 async function addRoles(){
     const role = await prompt (
         [
-            {
-                name: "role",
-                value: role,
-                type: "input",
-                message: "Please type of role would you like to add:",
-            },
+          
             {
                 name: "title",
-                value: title,
                 type: "input",
                 message: "Please type the title would you like to add:",
             },
             {
-                name: "salary",
-                value: salary,
+                name: "salary", 
                 type: "input",
                 message: "Please type the salary would you like to add:",
             },
             {
-                name: "department id",
-                value: department_id,
+                name: "department_id",
                 type: "input",
-                message: "Please type the department idwould you like to add:",
+                message: "Please type the department would you like to add:",
             }
             
         ]
     )
-        await db.insertRoles(role, title, salary, department_id);
+    await console.log(role)
+        await db.insertRoles(role);
         console.log("Department successfully added!");
         loadMainPrompts();
 }
