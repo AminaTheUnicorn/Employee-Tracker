@@ -99,7 +99,7 @@ async function addDepartments(){
 }
 
 async function addRoles(){
-    const role = await prompt (
+    let {title, salary, department_id} = await prompt (
         [
           
             {
@@ -120,42 +120,38 @@ async function addRoles(){
             
         ]
     )
-    await console.log(role)
-        await db.insertRoles(role);
+    await console.log(title, salary, department_id)
+        await db.insertRoles(title, salary, department_id);
         console.log("Department successfully added!");
         loadMainPrompts();
 }
 
 async function addEmployees(){
-    const employee = await prompt (
+    let {first_name, last_name, role_id, manager_id} = await prompt (
         [
             {
                 name: "first_name",
-                value: first_name,
                 type: "input",
                 message: "Please enter first name:",
             },
             {
                 name: "last_name",
-                value: last_name,
                 type: "input",
                 message: "Please enter last name:",
             },
             {
                 name: "role_id",
-                value: role_id,
                 type: "input",
                 message: "Please enter id:",
             },
             {
                 name: "manager_id",
-                value: manager_id,
                 type: "input",
                 message: "Please enter manager id:",
             },
         ]
     )
-        await db.insertEmployee(employee);
+        await db.insertEmployee(first_name, last_name, role_id, manager_id);
         console.log("Employee successfully added!");
         loadMainPrompts();
 }

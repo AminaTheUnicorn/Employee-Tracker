@@ -21,14 +21,22 @@ insertDepartment(department) {
 
 }
 
-insertRoles(role) {
-    return this.connection.query("INSERT INTO role SET ?", {
-      role: title, 
-      role: salary, 
-      role: department_id})
+// insertRoles(role) {
+//     return this.connection.query("INSERT INTO role SET ?",{
+//       title: this.title, 
+//       salary: this.salary, 
+//        department_id: this.department_id
+//       })
+//   }
+  insertRoles(title, salary, department_id) {
+    return this.connection.query("INSERT INTO role SET ?",{
+      title: title, 
+      salary: salary, 
+       department_id: department_id
+      })
   }
 
-  insertEmployee(first_name, last_name,role_id, manager_id) {
+  insertEmployee(first_name, last_name, role_id,  manager_id ) {
     return this.connection.query("INSERT INTO employee SET ?",{
         first_name: first_name, 
         last_name: last_name,
