@@ -36,7 +36,7 @@ insertDepartment(department) {
       })
   }
 
-  insertEmployee(first_name, last_name, role_id,  manager_id ) {
+  insertEmployee(first_name, last_name, role_id, manager_id ) {
     return this.connection.query("INSERT INTO employee SET ?",{
         first_name: first_name, 
         last_name: last_name,
