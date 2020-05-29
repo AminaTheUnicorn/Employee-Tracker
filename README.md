@@ -45,7 +45,7 @@ Bonus points if you're able to:
   * Delete departments, roles, and employees
 
   * View the total utilized budget of a department -- ie the combined salaries of all employees in that department
-![](employee-tracker.gif)
+
 We can frame this challenge as follows:
 
 ```
@@ -66,7 +66,7 @@ How do you deliver this? Here are some guidelines:
 
 * You will need to perform a variety of SQL JOINS to complete this assignment, and it's recommended you review the week's activities if you need a refresher on this.
 
-![Employee Tracker](Assets/employee-tracker.gif)
+![](employee-tracker.gif)
 
 ### Hints
 
